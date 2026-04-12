@@ -1,27 +1,45 @@
 [
     {
-        "id":0,
-        "title":"book1",
-        "Author":"A"
+        "id": 0,
+        "title": "book1",
+        "Author": "A"
     },
     {
-        "id":1,
-        "title":"book2",
-        "Author":"B"
+        "id": 1,
+        "title": "book2",
+        "Author": "B"
     },
     {
-        "id":2,
-        "title":"book3",
-        "Author":"C"
+        "id": 2,
+        "title": "book3",
+        "Author": "C"
     },
     {
-        "id":3,
-        "title":"book4",
-        "Author":"D"
+        "id": 3,
+        "title": "book4",
+        "Author": "D"
     },
     {
-        "id":4,
-        "title":"book5",
-        "Author":"E"
+        "id": 4,
+        "title": "book5",
+        "Author": "E"
+    },
+    {
+        "id": 5,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_year": 1925
+    },
+    {
+        "id": 6,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_year": 1925
+    },
+    {
+        "id": 7,
+        "title": "The Atomic Habits",
+        "author": "James Clear",
+        "published_year": 1950
     }
 ]
