@@ -1,96 +1,135 @@
-const fs = require('fs');
+const express = require('express');
+const Book = require('../models/bookModel');
 
+exports.getAllBooks =async (req, res) => {
 
-const books = JSON.parse(
-  fs.readFileSync(`${__dirname}/../book-list/data.json`, `utf-8`),
-);
-
-exports.checkID=((req,res,next,val)=>{
-  console.log(`book id is ${val}`)
-  if (req.params.id * 1 > books.length) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'Invalid ID',
-    });
-  }
-  next();
-})
-
-exports.checkBody=((req,res,next)=>{
-
-  if(!req.body.title||!req.body.Author){
-    return res.status(400).json({
-      status:'fail',
-      message:'missing Author or title'
-    })
-
-  }
-  next();
-})
-
-exports. getAllBooks = (req, res) => {
-  console.log(req.requestTime);
+  try{
+    // the find function return the array of the document
+  const books=await Book.find();
   res.status(200).json({
     status: 'success',
-    requestedTimeat: req.requestTime,
-    result: books.length,
-    data: {
-      books,
-    },
+    
+     result: books.length,
+     data: {
+       books,
+     },
+    
   });
+}catch(err){
+  res.status(400).json({
+    status:'fail',
+    message:err
+  })
+}
 };
 
-exports. getBook = (req, res) => {
+exports.getBook = async (req, res) => {
   console.log(req.params);
 
-  // convert id into number
-  const id = req.params.id * 1;
+  try{
 
-  const book = books.find((el) => el.id === id);
+   /*  
+       the function findById & findOne only return the object not the array
+       Book.findById(req.param.id)function same as
+       Book.findOne({_id:req.params.id})
+*/
+    const book=await Book.findById(req.params.id);
+    res.status(200).json({
+      status:'success',
+      data:{
+        book:book
+      }
+    })
 
+  }catch(err){
+    res.status(400).json({
+      status:'fail',
+      message:'err'
+    })
+  }
  
-  res.status(200).json({
-    status: 'success',
-    // result: book.length,
-    data: {
-      book,
-    },
-  });
 };
 
-exports. createBook = (req, res) => {
+exports.createBook = async (req, res) => {
   // console.log(req.body);
-  const newId = books[books.length - 1].id + 1;
-  const newBook = Object.assign({ id: newId }, req.body);
-  books.push(newBook);
-  fs.writeFile(
-    `${__dirname}/book-list/data.json`,
-    JSON.stringify(books),
-    (err) => {
-      res.status(201).json({
-        status: 'success',
-        data: {
-          books: newBook,
-        },
-      });
-    },
-  );
+
+  /*
+  1st method => to create the document
+    const newBook=new Book({})
+    newBook.save();
+    save()=>return promise
+    */
+
+  /*
+    2nd method=> apply create method on the model
+    Create=>return promoise . and promise utilize by two ways
+    1. then 
+    2. async await function
+    in my case model is Book
+    */
+
+  try {
+    const newBook = await Book.create(req.body);
+    res.status(201).json({
+      status: 'success',
+      data: {
+        book: newBook,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      staus: 'fail',
+      message: err,
+    });
+  }
 };
 
-exports. updateBook = (req, res) => {
+exports.updateBook = async (req, res) => {
 
-  res.status(200).json({
+    /*
+  A.findByIdAndUpdate(id, update, options)  // returns Query
+A.findByIdAndUpdate(id, update)           // returns Query
+A.findByIdAndUpdate()                     // returns Query
+  */
+
+  const book= await Book.findByIdAndUpdate(req.params.id,req.body,{
+  // it send the modified document instead of original doc=> new:true
+    new:true,
+    runValidators:true
+  })
+
+  try{
+
+     res.status(200).json({
     status: 'success',
     data: {
-      books: '<sucessfully updated....>',
+      book
     },
   });
+
+  }catch(err){
+    res.status(400).json({
+      status:'fail',
+      message:err
+
+    })
+  }
+ 
 };
 
-exports. deleteBook = (req, res) => {
-
-  res.status(204).json({
+exports.deleteBook = async(req, res) => {
+  try{
+    await Book.findByIdAndDelete(req.params.id);
+    res.status(204).json({
     status: 'success',
     data: null,
   });
+  }catch(err){
+    res.status(400).json({
+      status:'fail',
+      message:err
+
+    })
+  }
+  
 };
