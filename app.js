@@ -3,6 +3,7 @@ const morgan= require('morgan')
 const app = express();
 
 app.use(express.json());
+app.set('query parser', 'extended');
 
 const bookRouter=require('./routes/bookRouter')
 const userRouter=require('./routes/userRouter')

@@ -1,0 +1,143 @@
+[
+  {
+    "name": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "genre": "Programming",
+    "pages": 352,
+    "stock": 40,
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 150,
+    "price": 35,
+    "priceDiscount": 3,
+    "summary": "Tips for becoming a better programmer.",
+    "description": "Covers practical software craftsmanship and coding habits.",
+    "coverImage": "pragmatic-programmer.jpg",
+    "galleryImages": [
+      "prag1.jpg",
+      "prag2.jpg"
+    ],
+    "publishDates": [
+      "2024-06-11"
+    ]
+  },
+  {
+    "name": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "genre": "Programming",
+    "pages": 280,
+    "stock": 20,
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 170,
+    "price": 30,
+    "summary": "Deep dive into JavaScript internals.",
+    "description": "Understand scopes, closures, async behavior, and prototypes.",
+    "coverImage": "ydkjs.jpg",
+    "galleryImages": [
+      "js1.jpg",
+      "js2.jpg"
+    ],
+    "publishDates": [
+      "2025-02-01"
+    ]
+  },
+  {
+    "name": "Rich Dad Poor Dad",
+    "author": "Robert Kiyosaki",
+    "genre": "Finance",
+    "pages": 336,
+    "stock": 60,
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 300,
+    "price": 18,
+    "summary": "Financial education and wealth mindset.",
+    "description": "Learn how money works and how to build assets.",
+    "coverImage": "rich-dad.jpg",
+    "galleryImages": [
+      "finance1.jpg",
+      "finance2.jpg"
+    ],
+    "publishDates": [
+      "2022-09-18"
+    ]
+  },
+  {
+    "name": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "genre": "Finance",
+    "pages": 256,
+    "stock": 35,
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 190,
+    "price": 20,
+    "summary": "Behavior and money decisions.",
+    "description": "Explains how psychology affects financial success.",
+    "coverImage": "psychology-money.jpg",
+    "galleryImages": [
+      "money1.jpg",
+      "money2.jpg"
+    ],
+    "publishDates": [
+      "2023-04-10"
+    ]
+  },
+  {
+    "name": "The Alchemist",
+    "author": "Paulo Coelho",
+    "genre": "Fiction",
+    "pages": 208,
+    "stock": 45,
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 400,
+    "price": 15,
+    "summary": "A journey of self-discovery.",
+    "description": "A philosophical novel about following dreams.",
+    "coverImage": "alchemist.jpg",
+    "galleryImages": [
+      "alc1.jpg",
+      "alc2.jpg"
+    ],
+    "publishDates": [
+      "2021-08-14"
+    ]
+  },
+  {
+    "name": "1984",
+    "author": "George Orwell",
+    "genre": "Fiction",
+    "pages": 328,
+    "stock": 28,
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 500,
+    "price": 19,
+    "summary": "A dystopian political novel.",
+    "description": "Explores surveillance and authoritarianism.",
+    "coverImage": "1984.jpg",
+    "galleryImages": [
+      "1984-1.jpg",
+      "1984-2.jpg"
+    ],
+    "publishDates": [
+      "2020-12-05"
+    ]
+  },
+  {
+    "name": "Think and Grow Rich",
+    "author": "Napoleon Hill",
+    "genre": "Self Help",
+    "pages": 300,
+    "stock": 55,
+    "ratingsAverage": 4.3,
+    "ratingsQuantity": 250,
+    "price": 17,
+    "summary": "Success principles and mindset.",
+    "description": "Classic self-help strategies for achievement.",
+    "coverImage": "grow-rich.jpg",
+    "galleryImages": [
+      "rich1.jpg",
+      "rich2.jpg"
+    ],
+    "publishDates": [
+      "2019-06-25"
+    ]
+  }
+]
