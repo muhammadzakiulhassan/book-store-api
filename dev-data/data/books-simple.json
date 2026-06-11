@@ -1,143 +1,433 @@
 [
   {
-    "name": "The Pragmatic Programmer",
-    "author": "Andrew Hunt",
-    "genre": "Programming",
-    "pages": 352,
-    "stock": 40,
-    "ratingsAverage": 4.7,
-    "ratingsQuantity": 150,
-    "price": 35,
-    "priceDiscount": 3,
-    "summary": "Tips for becoming a better programmer.",
-    "description": "Covers practical software craftsmanship and coding habits.",
-    "coverImage": "pragmatic-programmer.jpg",
-    "galleryImages": [
-      "prag1.jpg",
-      "prag2.jpg"
-    ],
-    "publishDates": [
-      "2024-06-11"
-    ]
-  },
-  {
     "name": "You Don't Know JS",
-    "author": "Kyle Simpson",
-    "genre": "Programming",
+    "authors": [
+      {
+        "name": "Kyle Simpson",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Programming",
+    "genres": ["Programming", "JavaScript", "Web Development"],
+    "tags": ["javascript", "closures", "async", "frontend", "backend"],
     "pages": 280,
+    "price": 30,
+    "priceDiscount": 5,
     "stock": 20,
     "ratingsAverage": 4.8,
-    "ratingsQuantity": 170,
-    "price": 30,
+    "ratingsQuantity": 3,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2025-02-01",
+        "isbn": "978-1234567890",
+        "price": 30,
+        "stock": 12
+      },
+      {
+        "format": "ebook",
+        "language": "English",
+        "publishDate": "2025-03-15",
+        "isbn": "978-1234567891",
+        "price": 15,
+        "stock": 100
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-01-10",
+        "quantity": 8,
+        "salePrice": 30
+      },
+      {
+        "soldAt": "2025-02-12",
+        "quantity": 12,
+        "salePrice": 28
+      },
+      {
+        "soldAt": "2025-03-20",
+        "quantity": 5,
+        "salePrice": 30
+      }
+    ],
     "summary": "Deep dive into JavaScript internals.",
     "description": "Understand scopes, closures, async behavior, and prototypes.",
     "coverImage": "ydkjs.jpg",
-    "galleryImages": [
-      "js1.jpg",
-      "js2.jpg"
-    ],
-    "publishDates": [
-      "2025-02-01"
-    ]
+    "galleryImages": ["js1.jpg", "js2.jpg"]
   },
   {
+
+    "name": "Clean Code",
+    "authors": [
+      {
+        "name": "Robert C. Martin",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Programming",
+    "genres": ["Programming", "Software Engineering", "Best Practices"],
+    "tags": ["clean-code", "architecture", "refactoring", "backend"],
+    "pages": 450,
+    "price": 40,
+    "stock": 30,
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "hardcover",
+        "language": "English",
+        "publishDate": "2023-11-10",
+        "isbn": "978-2222222222",
+        "price": 45,
+        "stock": 10
+      },
+      {
+        "format": "ebook",
+        "language": "English",
+        "publishDate": "2024-01-05",
+        "isbn": "978-2222222223",
+        "price": 25,
+        "stock": 70
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-01-18",
+        "quantity": 10,
+        "salePrice": 40
+      },
+      {
+        "soldAt": "2025-02-21",
+        "quantity": 7,
+        "salePrice": 38
+      }
+    ],
+    "summary": "Learn how to write clean and maintainable code.",
+    "description": "A must-read book for developers who want professional coding practices.",
+    "coverImage": "clean-code.jpg",
+    "galleryImages": ["clean1.jpg", "clean2.jpg"]
+  },
+  {
+   
+    "name": "The Pragmatic Programmer",
+    "authors": [
+      {
+        "name": "Andrew Hunt",
+        "country": "USA"
+      },
+      {
+        "name": "David Thomas",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Programming",
+    "genres": ["Programming", "Career", "Software Engineering"],
+    "tags": ["career", "software-craftsmanship", "debugging", "backend"],
+    "pages": 352,
+    "price": 35,
+    "priceDiscount": 3,
+    "stock": 40,
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2024-06-11",
+        "isbn": "978-3333333333",
+        "price": 35,
+        "stock": 25
+      },
+      {
+        "format": "audiobook",
+        "language": "English",
+        "publishDate": "2024-07-01",
+        "isbn": "978-3333333334",
+        "price": 20,
+        "stock": 200
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-02-05",
+        "quantity": 6,
+        "salePrice": 35
+      },
+      {
+        "soldAt": "2025-03-14",
+        "quantity": 9,
+        "salePrice": 32
+      }
+    ],
+    "summary": "Tips for becoming a better programmer.",
+    "description": "Covers practical software craftsmanship and coding habits.",
+    "coverImage": "pragmatic-programmer.jpg",
+    "galleryImages": ["prag1.jpg", "prag2.jpg"]
+  },
+  {
+   
+    "name": "Atomic Habits",
+    "authors": [
+      {
+        "name": "James Clear",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Self Help",
+    "genres": ["Self Help", "Productivity", "Psychology"],
+    "tags": ["habits", "discipline", "productivity", "mindset"],
+    "pages": 320,
+    "price": 25,
+    "priceDiscount": 4,
+    "stock": 50,
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2024-01-12",
+        "isbn": "978-4444444444",
+        "price": 25,
+        "stock": 30
+      },
+      {
+        "format": "ebook",
+        "language": "English",
+        "publishDate": "2024-02-10",
+        "isbn": "978-4444444445",
+        "price": 12,
+        "stock": 120
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-01-03",
+        "quantity": 20,
+        "salePrice": 25
+      },
+      {
+        "soldAt": "2025-02-09",
+        "quantity": 18,
+        "salePrice": 22
+      },
+      {
+        "soldAt": "2025-03-11",
+        "quantity": 13,
+        "salePrice": 25
+      }
+    ],
+    "summary": "Build good habits and break bad ones.",
+    "description": "A practical guide to improving daily habits and achieving long-term success.",
+    "coverImage": "atomic-habits.jpg",
+    "galleryImages": ["habit1.jpg", "habit2.jpg"]
+  },
+  {
+    
+    "name": "Deep Work",
+    "authors": [
+      {
+        "name": "Cal Newport",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Productivity",
+    "genres": ["Productivity", "Self Help", "Focus"],
+    "tags": ["focus", "productivity", "career", "discipline"],
+    "pages": 290,
+    "price": 22,
+    "stock": 25,
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2025-05-15",
+        "isbn": "978-5555555555",
+        "price": 22,
+        "stock": 20
+      },
+      {
+        "format": "audiobook",
+        "language": "English",
+        "publishDate": "2025-06-01",
+        "isbn": "978-5555555556",
+        "price": 18,
+        "stock": 150
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-03-01",
+        "quantity": 11,
+        "salePrice": 22
+      },
+      {
+        "soldAt": "2025-04-10",
+        "quantity": 8,
+        "salePrice": 20
+      }
+    ],
+    "summary": "Improve focus and productivity.",
+    "description": "Learn strategies to perform deep focused work in a distracted world.",
+    "coverImage": "deep-work.jpg",
+    "galleryImages": ["deep1.jpg", "deep2.jpg"]
+  },
+  {
+ 
     "name": "Rich Dad Poor Dad",
-    "author": "Robert Kiyosaki",
-    "genre": "Finance",
+    "authors": [
+      {
+        "name": "Robert Kiyosaki",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Finance",
+    "genres": ["Finance", "Business", "Money"],
+    "tags": ["money", "assets", "wealth", "finance"],
     "pages": 336,
+    "price": 18,
     "stock": 60,
     "ratingsAverage": 4.5,
-    "ratingsQuantity": 300,
-    "price": 18,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2022-09-18",
+        "isbn": "978-6666666666",
+        "price": 18,
+        "stock": 40
+      },
+      {
+        "format": "ebook",
+        "language": "English",
+        "publishDate": "2022-10-01",
+        "isbn": "978-6666666667",
+        "price": 10,
+        "stock": 200
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-01-25",
+        "quantity": 15,
+        "salePrice": 18
+      },
+      {
+        "soldAt": "2025-02-15",
+        "quantity": 14,
+        "salePrice": 17
+      }
+    ],
     "summary": "Financial education and wealth mindset.",
     "description": "Learn how money works and how to build assets.",
     "coverImage": "rich-dad.jpg",
-    "galleryImages": [
-      "finance1.jpg",
-      "finance2.jpg"
-    ],
-    "publishDates": [
-      "2022-09-18"
-    ]
+    "galleryImages": ["finance1.jpg", "finance2.jpg"]
   },
   {
     "name": "The Psychology of Money",
-    "author": "Morgan Housel",
-    "genre": "Finance",
+    "authors": [
+      {
+        "name": "Morgan Housel",
+        "country": "USA"
+      }
+    ],
+    "primaryGenre": "Finance",
+    "genres": ["Finance", "Psychology", "Money"],
+    "tags": ["money", "behavior", "investing", "finance"],
     "pages": 256,
+    "price": 20,
     "stock": 35,
     "ratingsAverage": 4.7,
-    "ratingsQuantity": 190,
-    "price": 20,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "hardcover",
+        "language": "English",
+        "publishDate": "2023-04-10",
+        "isbn": "978-7777777777",
+        "price": 25,
+        "stock": 15
+      },
+      {
+        "format": "ebook",
+        "language": "English",
+        "publishDate": "2023-05-01",
+        "isbn": "978-7777777778",
+        "price": 11,
+        "stock": 110
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-03-03",
+        "quantity": 16,
+        "salePrice": 20
+      },
+      {
+        "soldAt": "2025-04-07",
+        "quantity": 10,
+        "salePrice": 19
+      }
+    ],
     "summary": "Behavior and money decisions.",
     "description": "Explains how psychology affects financial success.",
     "coverImage": "psychology-money.jpg",
-    "galleryImages": [
-      "money1.jpg",
-      "money2.jpg"
-    ],
-    "publishDates": [
-      "2023-04-10"
-    ]
+    "galleryImages": ["money1.jpg", "money2.jpg"]
   },
   {
-    "name": "The Alchemist",
-    "author": "Paulo Coelho",
-    "genre": "Fiction",
-    "pages": 208,
-    "stock": 45,
-    "ratingsAverage": 4.4,
-    "ratingsQuantity": 400,
-    "price": 15,
-    "summary": "A journey of self-discovery.",
-    "description": "A philosophical novel about following dreams.",
-    "coverImage": "alchemist.jpg",
-    "galleryImages": [
-      "alc1.jpg",
-      "alc2.jpg"
-    ],
-    "publishDates": [
-      "2021-08-14"
-    ]
-  },
-  {
+   
     "name": "1984",
-    "author": "George Orwell",
-    "genre": "Fiction",
+    "authors": [
+      {
+        "name": "George Orwell",
+        "country": "United Kingdom"
+      }
+    ],
+    "primaryGenre": "Fiction",
+    "genres": ["Fiction", "Dystopian", "Political"],
+    "tags": ["fiction", "politics", "surveillance", "classic"],
     "pages": 328,
+    "price": 19,
     "stock": 28,
     "ratingsAverage": 4.9,
-    "ratingsQuantity": 500,
-    "price": 19,
+    "ratingsQuantity": 2,
+    "editions": [
+      {
+        "format": "paperback",
+        "language": "English",
+        "publishDate": "2020-12-05",
+        "isbn": "978-8888888888",
+        "price": 19,
+        "stock": 20
+      },
+      {
+        "format": "audiobook",
+        "language": "English",
+        "publishDate": "2021-01-20",
+        "isbn": "978-8888888889",
+        "price": 14,
+        "stock": 80
+      }
+    ],
+    "salesHistory": [
+      {
+        "soldAt": "2025-01-08",
+        "quantity": 9,
+        "salePrice": 19
+      },
+      {
+        "soldAt": "2025-02-19",
+        "quantity": 11,
+        "salePrice": 18
+      }
+    ],
     "summary": "A dystopian political novel.",
     "description": "Explores surveillance and authoritarianism.",
     "coverImage": "1984.jpg",
-    "galleryImages": [
-      "1984-1.jpg",
-      "1984-2.jpg"
-    ],
-    "publishDates": [
-      "2020-12-05"
-    ]
-  },
-  {
-    "name": "Think and Grow Rich",
-    "author": "Napoleon Hill",
-    "genre": "Self Help",
-    "pages": 300,
-    "stock": 55,
-    "ratingsAverage": 4.3,
-    "ratingsQuantity": 250,
-    "price": 17,
-    "summary": "Success principles and mindset.",
-    "description": "Classic self-help strategies for achievement.",
-    "coverImage": "grow-rich.jpg",
-    "galleryImages": [
-      "rich1.jpg",
-      "rich2.jpg"
-    ],
-    "publishDates": [
-      "2019-06-25"
-    ]
+    "galleryImages": ["1984-1.jpg", "1984-2.jpg"]
   }
 ]
