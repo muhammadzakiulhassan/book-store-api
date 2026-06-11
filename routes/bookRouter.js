@@ -9,6 +9,10 @@ router
   .route('/best-seller')
   .get(bookController.aliasTopBooks, bookController.getAllBooks);
 
+router.route('/stats-by-genre').get(bookController.getBookStats);
+
+router.route('/popular-tags').get(bookController.popularTags);
+
 router
   .route(`/`)
   .get(bookController.getAllBooks)

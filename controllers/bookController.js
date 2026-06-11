@@ -1,6 +1,6 @@
 const express = require('express');
 const Book = require('../models/bookModel');
-const APIFeatures=require('./../utils/apiFeatures')
+const APIFeatures = require('./../utils/apiFeatures');
 
 exports.aliasTopBooks = (req, res, next) => {
   console.log('1. before', req.query);
@@ -145,3 +145,83 @@ exports.deleteBook = async (req, res) => {
     });
   }
 };
+
+exports.getBookStats = async (req, res) => {
+  try {
+    const stats = await Book.aggregate([
+      {
+        $match: {
+          ratingsAverage: { $gt: 4.5 },
+        },
+      },
+      {
+        $group: {
+          _id: '$primaryGenre',
+          numBooks: { $sum: 1 },
+          numRatings: { $sum: '$ratingsQuantity' },
+          avgRating: { $avg: '$ratingsAverage' },
+          avgPrice: { $avg: '$price' },
+          minPrice: { $min: '$price' },
+          maxPrice: { $max: '$price' },
+          totalStock: { $sum: '$stock' },
+        },
+      },
+      {
+        $sort: { avgPrice: 1 },
+      },
+    ]);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        stats,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
+// Which tags are most common in our bookstore?
+exports.popularTags = async (req, res) => {
+  try {
+    const tag = await Book.aggregate([
+      {
+        $unwind: '$tags',
+      },
+      {
+        $group: {
+          _id: '$tags',
+          numTags: { $sum: 1 },
+        },
+      },
+      {
+        $sort: {
+          numTags: -1,
+        },
+      },
+      {
+        $limit: 5,
+      },
+    ]);
+    res.status(200).json({
+      status: 'success',
+      data: {
+        tag,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
+// Which books generated the most revenue?
+
+
+
