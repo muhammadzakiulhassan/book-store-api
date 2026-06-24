@@ -1,6 +1,8 @@
 const express = require('express');
 const Book = require('../models/bookModel');
 const APIFeatures = require('./../utils/apiFeatures');
+const catchAsync=require('./../utils/catchAsync')
+const AppError=require('./../utils/appError')
 
 exports.aliasTopBooks = (req, res, next) => {
   console.log('1. before', req.query);
@@ -13,8 +15,9 @@ exports.aliasTopBooks = (req, res, next) => {
   next();
 };
 
-exports.getAllBooks = async (req, res) => {
-  try {
+exports.getAllBooks = catchAsync(async (req, res,next) => {
+ 
+
     const reqQuery = {
       ...req.query,
       ...(req.aliasQuery || {}),
@@ -37,42 +40,44 @@ exports.getAllBooks = async (req, res) => {
         books,
       },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err.message,
-    });
-  }
-};
 
-exports.getBook = async (req, res) => {
+});
+
+exports.getBook = catchAsync(async (req, res,next) => {
   console.log(req.params);
 
-  try {
+ 
     /*  
     the function findById & findOne only return the object not the array
     Book.findById(req.param.id)function same as
     Book.findOne({_id:req.params.id})
     */
     const book = await Book.findById(req.params.id);
+    if(!book){
+      return next(new AppError(`no book found of that ID`,404))
+    }
+
     res.status(200).json({
       status: 'success',
       data: {
         book: book,
       },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: 'err',
-    });
-  }
-};
 
-exports.createBook = async (req, res) => {
+});
+
+exports.createBook = catchAsync(async (req, res,next) => {
   // console.log(req.body);
 
-  /*
+    const newBook = await Book.create(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        book: newBook,
+      },
+    });
+ });  /*
   1st method => to create the document
   const newBook=new Book({})
   newBook.save();
@@ -87,23 +92,8 @@ exports.createBook = async (req, res) => {
     in my case model is Book
     */
 
-  try {
-    const newBook = await Book.create(req.body);
-    res.status(201).json({
-      status: 'success',
-      data: {
-        book: newBook,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      staus: 'fail',
-      message: err,
-    });
-  }
-};
 
-exports.updateBook = async (req, res) => {
+exports.updateBook =catchAsync( async (req, res,next) => {
   /*
   A.findByIdAndUpdate(id, update, options)  // returns Query
   A.findByIdAndUpdate(id, update)           // returns Query
@@ -116,38 +106,36 @@ exports.updateBook = async (req, res) => {
     runValidators: true,
   });
 
-  try {
+  if(!book){
+      return next(new AppError(`no book found of that ID`,404))
+    }
+
     res.status(200).json({
       status: 'success',
       data: {
         book,
       },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+ 
+});
 
-exports.deleteBook = async (req, res) => {
-  try {
-    await Book.findByIdAndDelete(req.params.id);
+exports.deleteBook = catchAsync(async (req, res,next) => {
+ 
+   const book= await Book.findByIdAndDelete(req.params.id);
+
+     if(!book){
+      return next(new AppError(`no book found of that ID`,404))
+    }
+
     res.status(204).json({
       status: 'success',
       data: null,
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+ 
+});
 
-exports.getBookStats = async (req, res) => {
-  try {
+exports.getBookStats = catchAsync(async (req, res,next) => {
+
     const stats = await Book.aggregate([
       {
         $match: {
@@ -177,17 +165,12 @@ exports.getBookStats = async (req, res) => {
         stats,
       },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+
+});
 
 // Which tags are most common in our bookstore?
-exports.popularTags = async (req, res) => {
-  try {
+exports.popularTags = catchAsync(async (req, res,next) => {
+
     const tag = await Book.aggregate([
       {
         $unwind: '$tags',
@@ -213,13 +196,9 @@ exports.popularTags = async (req, res) => {
         tag,
       },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-};
+  
+});
+
 
 // Which books generated the most revenue?
 
