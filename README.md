@@ -19,6 +19,5 @@ A backend CLI application built with Node.js, MongoDB, and Mongoose for managing
 
 ## Future Improvements
 
-- REST API integration
 - Authentication & authorization
 - Cloud deployment
