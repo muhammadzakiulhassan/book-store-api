@@ -48,30 +48,11 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createUsers = (req, res) => {
-  res.status(505).json({
-    status: 'err',
-    message: 'This Route is not implemented yet',
-  });
-};
+exports.deleteMe = catchAsync(async (req, res, next) => {
+  await User.findByIdAndUpdate(req.user.id, { active: false });
 
-exports.getUser = (req, res) => {
-  res.status(505).json({
-    status: 'err',
-    message: 'This Route is not implemented yet',
+  res.status(204).json({
+    status: 'success',
+    data: null,
   });
-};
-
-exports.updateUser = (req, res) => {
-  res.status(505).json({
-    status: 'err',
-    message: 'This Route is not implemented yet',
-  });
-};
-
-exports.deleteUser = (req, res) => {
-  res.status(505).json({
-    status: 'err',
-    message: 'This Route is not implemented yet',
-  });
-};
+});
